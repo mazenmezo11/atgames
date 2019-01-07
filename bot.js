@@ -1,7 +1,8 @@
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-       
+const prefix = "!";
+
 client.on('message', dark => {
     
     if (dark.content === "APETRYL") {
