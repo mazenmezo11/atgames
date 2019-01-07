@@ -2,6 +2,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+const Eris = require("eris");
+var n3k4a = new Eris("NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs");
+n3k4a.on("ready", () => {
+    console.log("tm");
+    onstart();
+});
 n3k4a = "531368684342476830";
 nick = "ApeTryl Server";
 function onstart(){
