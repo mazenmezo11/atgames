@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 var prefix = "!";
-if(message.content.startsWith(prefix + "صراحة")) {
+if(message.content.startsWith(prefix + "صراحه")) {
 const Sra7a = [
             'صراحه  |  صوتك حلوة؟',
             'صراحه  |  التقيت الناس مع وجوهين؟',
