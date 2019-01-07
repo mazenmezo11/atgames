@@ -338,4 +338,4 @@ m.edit({embed: new Discord.RichEmbed().setTitle('لديك 15 ثانيه للاج
     
 ]
 
-client.login(process.env.BOT_TOKEN);
+client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUE5Q.HaeFxNLmt2xkOTumJgtOIxn9_ts');
