@@ -1,22 +1,29 @@
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "!";
 
-client.on('message', dark => {
-    
-    if (dark.content === "APETRYL") {
-        setInterval(function(){
-        dark.edit('**A**')    
-        dark.edit('**AP**')    
-        dark.edit('**APE**')
-        dark.edit('**APET**')
-        dark.edit('**APETR**')
-        dark.edit('**APETRY**')
-        dark.edit('**APETRYL*')
-        }, 900)
-    }
-    
-})
+n3k4a = "531368684342476830";
+nick = "ApeTryl Server";
+function onstart(){
+    var v1 = nick.split('');
+    var counter;
+    var i=0;
+varRandy 2 = ' By <@399353508429824000> ,';
+  var n3k4a =   setInterval(function(){
+
+     if (i == v1.length){
+     clearInterval(n3k4a);
+     onstart()
+      return;
+     }
+     var v2 = v1[i];
+   n3k4a += v2;
+    n3k4a.editNickname(Acura);
+ 
+        i++;
+
+     }, 1000);
+}
+n3k4a.connect();
 
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
