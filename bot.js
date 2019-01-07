@@ -2,34 +2,25 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const Eris = require("eris");
-var n3k4a = new Eris("NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs");
-n3k4a.on("ready", () => {
-    console.log("tm");
-    onstart();
-});
-n3k4a = "531368684342476830";
-nick = "ApeTryl Server";
-function onstart(){
-    var v1 = nick.split('');
-    var counter;
-    var i=0;
-varRandy 2 = ' By <@399353508429824000> ,';
-  var n3k4a =   setInterval(function(){
-
-     if (i == v1.length){
-     clearInterval(n3k4a);
-     onstart()
-      return;
-     }
-     var v2 = v1[i];
-   n3k4a += v2;
-    n3k4a.editNickname(Acura);
- 
-        i++;
-
-     }, 1000);
-}
-n3k4a.connect();
+client.on("ready", async  => {
+  setInterval(function(){
+  client.channels.find('id', '531980235785240604').setName("W");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("We");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Wel");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welc");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welco");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcom");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome T");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To A");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To Ap");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To Ape");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To ApeT");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To ApeTr");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To ApeTry");//Toxic Codes
+  client.channels.find('id', '531980235785240604').setName("Welcome To ApeTryl");//Toxic Codes
+    }, 4000);
+  });
 
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
