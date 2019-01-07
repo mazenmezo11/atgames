@@ -2,45 +2,41 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
        
-       client.on("message", function(message) {
-	var prefix = "!";
-   if(message.content.startsWith(prefix + "حجر")) {
-    let messageArgs = message.content.split(" ").slice(1).join(" ");
-    let messageRPS = message.content.split(" ").slice(2).join(" ");
-    let arrayRPS = ['**# - Rock**','**# - Paper**','**# - Scissors**'];
-    let result = `${arrayRPS[Math.floor(Math.random() * arrayRPS.length)]}`;
-    var RpsEmbed = new Discord.RichEmbed()
-    .setAuthor(message.author.username)
-    .setThumbnail(message.author.avatarURL)
-    .addField("Rock","ًں‡·",true)
-    .addField("Paper","ًں‡µ",true)
-    .addField("Scissors","ًں‡¸",true)
-    message.channel.send(RpsEmbed).then(msg => {
-        msg.react(' ًں‡·')
-        msg.react("ًں‡¸")
-        msg.react("ًں‡µ")
-.then(() => msg.react('ًں‡·'))
-.then(() =>msg.react('ًں‡¸'))
-.then(() => msg.react('ًں‡µ'))
-let reaction1Filter = (reaction, user) => reaction.emoji.name === 'ًں‡·' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === 'ًں‡¸' && user.id === message.author.id;
-let reaction3Filter = (reaction, user) => reaction.emoji.name === 'ًں‡µ' && user.id === message.author.id;
-let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-	    
-let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
-let reaction3 = msg.createReactionCollector(reaction3Filter, { time: 12000 });
-reaction1.on("collect", r => {
-        message.channel.send(result)
-})
-reaction2.on("collect", r => {
-        message.channel.send(result)
-})
-reaction3.on("collect", r => {
-        message.channel.send(result)
-})
-
-    })
-}
-});
+    client.on('guildMemberAdd', member => {
+        let channel = member.guild.channels.find('name', 'welcome');
+        let memberavatar = member.user.avatarURL
+          if (!channel) return;
+        let embed = new Discord.RichEmbed()
+            .setColor('#0dffdb')
+            .setThumbnail(memberavatar)
+            .addField('🎽 | name :  ',`${member}`)
+            .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
+            .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
+                    .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+                   
+                      .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                         
+                                         .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                           
+         .setFooter(`${member.guild.name}`)
+            .setTimestamp()
+       
+          channel.sendEmbed(embed);
+        });
+        
+        client.on('guildMemberRemove', member => {
+            var embed = new Discord.RichEmbed()
+            .setAuthor(member.user.username, member.user.avatarURL)
+            .setThumbnail(member.user.avatarURL)
+            .setTitle(`الله معاك ✋:skin-tone-1: 😔`)
+            .setDescription(`مع السلامه شرفتنا ✋:skin-tone-1: 😔 `)
+            .addField('👤   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
+            .setColor('#ff0004')
+            .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
+        
+        var channel =member.guild.channels.find('name', 'welcome')
+        if (!channel) return;
+        channel.send({embed : embed});
+        }) 
 
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
