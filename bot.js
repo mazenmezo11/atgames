@@ -23,4 +23,19 @@ client.on("ready", async  => {
     }, 4000);
   });
 
+    var prefix = "!";
+client.on('message', message => {
+     if (message.content === (prefix + "bot")) {
+         if(!message.channel.guild) return;
+     let embed = new Discord.RichEmbed()
+  .setColor("#8650a7")
+  .addField("** ✅ Servers: **" , client.guilds.size)
+  .addField("** ✅ Users: **" , client.users.size)
+  .addField("** ✅ Channels: **" , client.channels.size)
+    .addField("** 🚀 Ping **" , Date.now() - message.createdTimestamp)
+    .setTimestamp()
+  message.channel.sendEmbed(embed);
+    }
+});
+
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
