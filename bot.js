@@ -160,38 +160,9 @@ client.on('message', message => {
   message.guild.member(user).ban(7, user);
 
 
-  message.channel.send(`✅  ${user} banned from the server ! ✈    `)
+  message.channel.send(`✅  ${user} إلبس بان :upside_down:   ✈    `)
 }
 });
 
-client.on('message',async message => {
-  if(message.content.startsWith(#id)) {
-    if(message.author.bot) return;
-    if(message.channel.type === 'dm') return;
-      message.guild.fetchInvites().then(invs => {
-    let user = message.author;
-    let personalInvites = invs.filter(i => i.inviter.id === user.id);
-    let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-    const millis = new Date().getTime() - message.author.createdAt.getTime();
-    const noww = new Date();
-    dateFormat(noww, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
-    const created = millis / 1000 / 60 / 60 / 24;
-    const milliss = new Date().getTime() - message.guild.member(message.author).joinedAt.getTime();
-    const nows = new Date();
-    dateFormat(nows, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
-    const joined = milliss / 1000 / 60 / 60 / 24;
-    let embed = new Discord.RichEmbed()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .setColor('#36393e')
-    .setThumbnail(message.author.avatarURL)
-    .addField('» مضى على دخولك الدسكورد', `${created.toFixed(0)} يومّا`,true)
-    .addField('» مضى على دخولك السيرفر', `${joined.toFixed(0)} يومّا`,true)
-    .addField('» دعوات',inviteCount,true)
-    .setFooter(' Premium Bot™ © | 2018.');
-
-    message.channel.send(embed);
-  });
-  }
-});
 
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
