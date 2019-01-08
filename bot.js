@@ -291,4 +291,4 @@ message.author.send(`**مدة الرابط : يـوم
 });
 
 
-client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
+client.login(process.env.BOT_TOKEN);
