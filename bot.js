@@ -164,10 +164,8 @@ client.on('message', message => {
 }
 });
 
-var prefix = "#"
-
 client.on('message',async message => {
-  if(message.content.startsWith(prefix + "id")) {
+  if(message.content.startsWith(#id)) {
     if(message.author.bot) return;
     if(message.channel.type === 'dm') return;
       message.guild.fetchInvites().then(invs => {
