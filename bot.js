@@ -83,88 +83,6 @@ client.on('message', message=> {
     }
 });
 
-client.on("message", (message) => {//Toxic Codes
-   if (message.content.startsWith("#new")) {//Toxic Codes  
-        const reason = message.content.split(" ").slice(1).join(" ");    
-        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    
-        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {//Toxic Codes
-            let role = message.guild.roles.find("name", "Support Team");
-            let role2 = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {//Toxic Codes
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });    
-            c.overwritePermissions(role2, {//Toxic Codes
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
-            });
-            c.overwritePermissions(message.author, {//Toxic Codes
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            message.channel.send(`:white_check_mark: **تم إنشاء تذكرتك ، #${c.name}.**`);
-            const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .addField(`مرحباّ ${message.author.username}!`, `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون فريق الدعم لدينا قريبا للمساعدة.`)
-                .setTimestamp();
-            c.send({
-                embed: embed
-            });
-        }).catch(console.error);
-    }
- 
- 
-  if (message.content.startsWith("*close")) {//Toxic Codes
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
- 
-       message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`*confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
-           .then((m) => {
-               message.channel.awaitMessages(response => response.content === '*confirm', {
-                       max: 1,
-                       time: 10000,
-                       errors: ['time'],
-                   })  
-                   .then((collected) => {
-                       message.channel.delete();
-                   })    
-                   .catch(() => {
-                       m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
-                           m2.delete();
-                       }, 3000);
-                   });
-           });
-   }
- 
-});
-
-client.on('message', message => {
-    var prefix = "#"
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
-
-  message.guild.member(user).ban(7, user);
-
-
-  message.channel.send(`✅  ${user} لقد تم تبنيد الشخص  ✈    `)
-}
-});
-
 client.on('message' , message => {
     let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
     if(message.content.startsWith('#' + 'unban')) {
@@ -213,7 +131,7 @@ client.on('message', message => {
  
   let args = message.content.split(" ").slice(1);//Narox
  
-  if (command == "كيك") {
+  if (command == "طرد") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
@@ -240,5 +158,187 @@ client.on('message', message => {
 }
 });
 
+
+ client.on('message', message => {
+
+ var ms = require('ms')
+
+ var moment = require('moment');
+
+ var prefix = "#"
+  
+ if (message.author.x5bz) return;
+
+ if (!message.content.startsWith(prefix)) return;
+
+ let command = message.content.split(" ")[0];
+
+ command = command.slice(prefix.length);
+
+ let args = message.content.split(" ").slice(1);
+
+ let messageArray = message.content.split(" ");
+
+ let embed = new Discord.RichEmbed()
+
+.setImage("https://d.top4top.net/p_10880lo1r1.png")
+
+ if (command == "ban") {
+
+ if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+ if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**:x: You Don't Have ` BAN_MEMBERS ` Permission**");
+
+ if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**:x: I Don't Have ` BAN_MEMBERS ` Permission**");
+
+ let user = message.mentions.users.first();
+
+ let Reason = message.content.split(" ").slice(3).join(" ");
+
+ let time = messageArray[2];
+
+ if (message.mentions.users.size < 1) return message.channel.sendEmbed(embed)
+  
+ if (!message.guild.member(user).bannable) return message.reply("**:x:I Don't Have Permission For Ban This User**");
+
+ if(!time.match(/[1-60][s,m,h,d,w]/g))  return message.channel.send(':x: This Time Is Incorrect')
+
+ if(!Reason)  {
+
+ message.guild.member(user).ban({reason: Reason})
+
+ }
+
+  if(!Reason && time) {
+
+  message.guild.member(user).ban(7, user);
+
+  }  
+
+  if(!time) {
+
+  message.guild.member(user).ban(7, user);
+
+  }
+  if(time) {
+  
+  setTimeout(() => {
+
+  message.guild.unban(user);
+
+  }, ms(time));
+
+  }
+
+  if(time && Reason && user) {
+
+  message.guild.member(user).ban({reason: Reason})
+
+  setTimeout(() => {
+
+  message.guild.unban(user);
+  
+  }, ms(time));
+
+  }
+
+  message.channel.send(`:white_check_mark:  ${user.tag} banned from the server ! :airplane:`)
+
+  }
+
+  });
+
+
+client.on('message', message => {
+
+  var ms = require('ms')
+ 
+  var moment = require('moment');
+ 
+  var prefix = "#"
+   
+  if (message.author.x5bz) return;
+ 
+  if (!message.content.startsWith(prefix)) return;
+ 
+  let command = message.content.split(" ")[0];
+ 
+  command = command.slice(prefix.length);
+ 
+  let args = message.content.split(" ").slice(1);
+ 
+  let messageArray = message.content.split(" ");
+ 
+  let muteRole = message.guild.roles.find("name", "Muted");
+
+  let embed = new Discord.RichEmbed()
+ 
+ .setImage("https://c.top4top.net/p_108825enp1.png")
+ 
+  if (command == "mute") {
+    
+  if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
+
+  if(!message.channel.guild) return message.reply('** This command only for servers**');
+          
+  if(!message.guild.member(message.author).hasPermission("MUTE_MEMBERS")) return message.reply("**:x: You Don't Have ` MUTE_MEMBERS ` Permission**");
+ 
+  if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return message.reply("**:x: I Don't Have ` MUTE_MEMBERS ` Permission**");
+ 
+  let user = message.mentions.users.first();
+ 
+  let Reason = message.content.split(" ").slice(4).join(" ");
+ 
+  let time = messageArray[2];
+ 
+  if (message.mentions.users.size < 1) return message.channel.sendEmbed(embed)
+   
+  if (!message.guild.member(user).bannable) return message.reply("**:x:I Don't Have Permission For Mute This User**");
+ 
+  if(!Reason)  {
+ 
+    message.guild.member(user).addRole(muteRole);
+ 
+  }
+ 
+   if(!Reason && time) {
+ 
+    message.guild.member(user).addRole(muteRole);
+ 
+   }  
+ 
+   if(!time) {
+ 
+    message.guild.member(user).addRole(muteRole);
+ 
+   }
+   if(time) {
+    if(!time.match(/[1-60][s,m,h,d,w]/g))  return message.channel.send(':x: This Time Is Incorrect')
+
+   setTimeout(() => {
+ 
+    message.guild.member(user).removeRole(muteRole);
+ 
+   }, ms(time));
+ 
+   }
+ 
+   if(time && Reason && user) {
+ 
+    message.guild.member(user).addRole(muteRole);
+ 
+   setTimeout(() => {
+ 
+    message.guild.member(user).removeRole(muteRole);
+   
+   }, ms(time));
+ 
+   }
+ 
+   message.channel.send(`:white_check_mark: ${user} has been muted ! :zipper_mouth:`)
+ 
+   }
+ 
+   });
 
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
