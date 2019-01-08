@@ -221,4 +221,11 @@ client.on('message', message => {
 }
 });
 
+client.on("guildMemberAdd", (member) => {
+client.channels.get('532037369512198185').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
+})
+client.on("guildMemberRemove", (member) => {
+client.channels.get('532037369512198185').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
+})
+
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
