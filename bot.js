@@ -23,10 +23,6 @@ client.on("ready", async  => {
     }, 4000);
   });
      
-     
-  message.channel.sendEmbed(embed);
-    }
-}); //Toxic Codes
 
     var prefix = '#'
 client.on('message', message => {
