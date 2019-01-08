@@ -42,6 +42,7 @@ client.on('guildCreate', guild => {
   var embed = new Discord.RichEmbed()
   .setColor(0x5500ff)
   .setDescription(`**شكراََ لك على إضافة البوت إلى سيرفرك**`)
+  .setDescription(`**The Bot Make By Omar M. El-Sisy**`)
       guild.owner.send(embed)
 });
 
