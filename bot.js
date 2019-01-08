@@ -147,7 +147,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "بان") {
+  if (command == "ban") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
          
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
@@ -161,9 +161,28 @@ client.on('message', message => {
   message.guild.member(user).ban(7, user);
 
 
-  message.channel.send(`✅  ${user} إلبس بان :upside_down:   ✈    `)
+  message.channel.send(`✅  ${user} لقد تم تبنيد الشخص  ✈    `)
 }
 });
+
+client.on('message' , message => {
+    let user = message.mentions.users.first()|| client.users.get(message.content.split(' ')[1])
+    if(message.content.startsWith('#' + 'unban')) {
+        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك رتبة`**');
+        if(!user) return  message.channel.send(`Do this ${prefix} <@ID user> \n or \n ${prefix}unban ID user`);
+        message.guild.unban(user);
+        message.guild.owner.send(`لقد تم فك الباند عن الشخص \n ${user} \n By : <@${message.author.id}>`)
+        var embed = new Discord.RichEmbed()
+        .setThumbnail(message.author.avatarURl)
+        .setColor("RANDOM")
+        .setTitle('**●Unban** !')
+        .addField('**●User Unban :** ', `${user}` , true)
+        .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
+        .setAuthor(message.guild.name)
+        message.channel.sendEmbed(embed)
+    }
+});
+
 
 client.on("message", msg => {
   if(msg.content === '#' + "id") {
@@ -222,8 +241,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-var prefix = "#" // البريفكس
-if(message.content.startsWith(prefix +"server")){ // الامر
+if(message.content.startsWith('#' +"server")){ // الامر
   if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** ❎ `)
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
