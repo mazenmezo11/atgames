@@ -38,4 +38,11 @@ client.on('message', message => {
     }
 });
 
+client.on('guildCreate', guild => {
+  var embed = new Discord.RichEmbed()
+  .setColor(0x5500ff)
+  .setDescription(`**شكراََ لك على إضافة البوت إلى سيرفرك**`)
+      guild.owner.send(embed)
+});
+
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
