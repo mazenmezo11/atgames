@@ -221,11 +221,22 @@ client.on('message', message => {
 }
 });
 
-client.on("guildMemberAdd", (member) => {
-client.channels.get('532037369512198185').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
-})
-client.on("guildMemberRemove", (member) => {
-client.channels.get('532037369512198185').edit({name : `『 الأعضاء ↩ ${member.guild.memberCount} 』`});
-})
+client.on("message", message => {
+    if(message.content.startsWith('#' + 'help')) {
+        message.delete(5000)
+        if(!message.channel.guild) return;
+        const e = new Discord.RichEmbed()
+        .setColor('#36393e')
+        .setDescription(`**تم الارسال في الخاص**📬`)
+     const embed = new Discord.RichEmbed()
+         .setColor('#36393e')
+         .setTitle('Click To Join Support Server')
+         .setURL('')
+         .setDescription(``)
+   message.channel.send(e).then(m => m.delete(5000))
+   message.author.sendEmbed(embed).catch(error => message.reply('**خاصك مقفول**🔐'))
+   
+   }
+   });
 
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
