@@ -271,4 +271,24 @@ client.on('message', msg => {
 });
 
 
+client.on('message', message => {
+    if (message.content.startsWith("رابط")) {
+
+  message.channel.createInvite({
+        thing: true,
+        maxUses: 100,
+        maxAge: 86400
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+  message.channel.send("**:link:.تم ارسال الرابط برسالة خاصة**")
+
+message.author.send(`**مدة الرابط : يـوم
+عدد استخدامات الرابط : 10**`)
+
+
+    }
+});
+
+
 client.login('NTMxODU0MzM1OTkxMDg3MTA3.DxUH5w.Er9zZouaPrzngzlCQeR3MKVsZjs');
