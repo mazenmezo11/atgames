@@ -209,12 +209,12 @@ client.on('message', message => {
   message.guild.member(user).kick();//Narox
  
   const kickembed = new Discord.RichEmbed()//Narox
-  .setAuthor(`KICKED!`, user.displayAvatarURL)
+  .setAuthor(`تم الطرد`, user.displayAvatarURL)
   .setColor("RANDOM")
   .setTimestamp()//Narox
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  .addField("**الشخص:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**بواسطة:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب:**", '**[ ' + `${reason}` + ' ]**')
   message.channel.send({//Narox
     embed : kickembed
   })//Narox
