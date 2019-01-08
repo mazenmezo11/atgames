@@ -78,7 +78,7 @@ client.on('message', message=> {
     if (message.author.bot) return;
     if (message.isMentioned(client.user))
     {//Toxic Codes
-    message.reply("لا أستطيع المساعدة.. أنا مجرد روبوت :)");
+    message.reply("لا أستطيع المساعدة.. أنا مجرد روبوت :slight_smile: ");
     }
 });
 
