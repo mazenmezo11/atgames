@@ -1,6 +1,7 @@
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const prefix = '#'
 
 client.on("ready", async  => {
   setInterval(function(){
@@ -23,7 +24,7 @@ client.on("ready", async  => {
     }, 4000);
   });
 
-    var prefix = "#";
+
 client.on('message', message => {
      if (message.content === (prefix + "bot")) {
          if(!message.channel.guild) return;
@@ -56,6 +57,7 @@ client.on('guildCreate', guild => {
        }
    });
 
+
 client.on('message', message => {
     if (message.content.startsWith("#avatar")) {
         var mentionned = message.mentions.users.first();
@@ -73,7 +75,7 @@ client.on('message', message => {
     }
 });
 
-var prefix = "#";
+
 client.on("message", message => {
     if(message.content.startsWith(prefix + "nickall")) {
         let args = message.content.split(" ").slice(1).join(" ");
